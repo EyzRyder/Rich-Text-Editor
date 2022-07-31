@@ -4,10 +4,10 @@ let fontName = document.getElementById("fontName");
 let fontSizeRef = document.getElementById("fontSize");
 let writingArea = document.getElementById("text-input");
 let likeButton = document.getElementById("createLink");
-let alignButton = document.querySelectorAll(".align");
-let spacingButton = document.querySelectorAll(".spacing");
-let formatButton = document.querySelectorAll(".format");
-let scriptButton = document.querySelectorAll(".script");
+let alignButtons = document.querySelectorAll(".align");
+let spacingButtons = document.querySelectorAll(".spacing");
+let formatButtons = document.querySelectorAll(".format");
+let scriptButtons = document.querySelectorAll(".script");
 
 //List of fontList
 let fontList = ["Arial",
@@ -16,4 +16,15 @@ let fontList = ["Arial",
     "Garamond",
     "Georgia",
     "Couries New",
-    "cursive",];
+    "cursive",
+];
+
+    //Initial Settings 
+const initializer = () => {
+    //function calls for highlighting buttons
+    //no highlights for link, unlink, list, un, redo, since they are one time operations
+    highlighter(alignButtons, true);
+    highlighter(spacingButtons, true);
+    highlighter(formatButtons, false);
+    highlighter(spacingButtons, true);
+}
