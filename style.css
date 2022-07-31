@@ -20,7 +20,7 @@ body {
     box-shadow: 0 35px 50px rgba(54, 33, 33, 0.2);
 }
 
-.options{
+.options {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -37,4 +37,49 @@ button {
     background-color: transparent;
     outline: none;
     color: #290216;
+}
+
+select {
+    padding: 7px;
+    border: 1px solid #290216;
+    border-radius: 3px;
+}
+
+.options label,
+.options select {
+    font-family: "Poppins", sans-serif;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    width: 40px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #290216;
+}
+
+input[type="color"]::-moz-color-swatch {
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #290216;
+}
+
+#text-input {
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    height: 50vh;
 }
