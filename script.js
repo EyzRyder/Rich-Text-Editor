@@ -30,7 +30,7 @@ const initializer = () => {
 }
 
 //Highlight clicked button
-const highlighter = (className, needsRemoval)=>{
+const highlighter = (className, needsRemoval) => {
     className.forEach((button) => {
         button.addEventListener("click", () => {
             //needsRemoval = true means only one button shoould be highlight and other would be normal
@@ -49,10 +49,17 @@ const highlighter = (className, needsRemoval)=>{
                     button.classList.add("active");
                 }
             }
-            else { 
+            else {
                 //if other buttons can be highlighted
                 button.classList.toggle("active");
             }
         });
+    });
+};
+
+const highlighterRemover = (className) => {
+    className.forEach((button) => {
+        button.classList.remove("active");
     })
 }
+window.onload=initializer();
