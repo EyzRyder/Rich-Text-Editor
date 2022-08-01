@@ -16,7 +16,7 @@ let fontList = ["Arial",
     "Garamond",
     "Georgia",
     "Couries New",
-    "cursive",
+    "Cursive",
 ];
 
     //Initial Settings 
@@ -27,6 +27,24 @@ const initializer = () => {
     highlighter(spacingButtons, true);
     highlighter(formatButtons, false);
     highlighter(spacingButtons, true);
+
+    //create options for font names
+    fontList.map(value => {
+        let option = document.createElement('option');
+        option.value = value;
+        option.innerHTML = value;
+        fontName.appendChild(option);
+    });
+
+    //fontaSize allows only till 7
+    for (let i = 1; i <= 7; i++) {
+        let option = document.createElement('option');
+        option.value = i;
+        option.innerHTML = i;
+        fontSizeRef.appendChild(option);
+    }
+    //default size
+    fontSizeRef.value = 3;
 }
 
 //Highlight clicked button
