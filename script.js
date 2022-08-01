@@ -47,6 +47,12 @@ const initializer = () => {
     fontSizeRef.value = 3;
 }
 
+//main logic
+const modifyText = (command, defaultUi, value) => {
+    //execCommand executes command on selected text
+    document.execCommand(command, defaultUi, value);
+}
+
 //Highlight clicked button
 const highlighter = (className, needsRemoval) => {
     className.forEach((button) => {
