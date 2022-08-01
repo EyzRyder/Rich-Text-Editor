@@ -3,7 +3,7 @@ let advancedOptionsButtons = document.querySelectorAll(".adv-option-button");
 let fontName = document.getElementById("fontName");
 let fontSizeRef = document.getElementById("fontSize");
 let writingArea = document.getElementById("text-input");
-let likeButton = document.getElementById("createLink");
+let linkButton = document.getElementById("createLink");
 let alignButtons = document.querySelectorAll(".align");
 let spacingButtons = document.querySelectorAll(".spacing");
 let formatButtons = document.querySelectorAll(".format");
@@ -52,6 +52,32 @@ const modifyText = (command, defaultUi, value) => {
     //execCommand executes command on selected text
     document.execCommand(command, defaultUi, value);
 }
+
+//For basic operations which don't need value parameter
+optionsButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        modifyText(button.id, false, null);
+    });
+});
+
+//options That require value parameter (e.g colors, fonts)
+advancedOptionsButtons.forEach((button) => { 
+    button.addEventListener("change", () => { 
+        modifyText(button.id, false, button.value);
+    });
+});
+
+//link 
+linkButton.addEventListener("click", () => { 
+    let userLink = prompt("Enter a URL");
+    //if link has http then pass directly else add https
+    if (/http/i.test(userLink)) {
+        modifyText(linkButton.id,false, userLink);
+    } else {
+        userLink = "http://" + userLink;
+        modifyText(linkButton.id, false, userLink);
+    }
+});
 
 //Highlight clicked button
 const highlighter = (className, needsRemoval) => {
